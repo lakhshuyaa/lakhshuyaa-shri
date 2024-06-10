@@ -1,0 +1,16 @@
+def insert_into_sorted_array(arr, n, item):
+    arr.append(0)
+    i = n - 1
+    while i >= 0 and arr[i] > item:
+        arr[i+1] = arr[i]
+        i -= 1
+    arr[i+1] = item
+    return arr
+n = 10
+arr = [int(input()) for _ in range(n)]
+item = int(input())
+arr = insert_into_sorted_array(arr, n, item)
+print(f"ITEM to be inserted:{item}")
+print("After insertion array is:")
+for element in arr:
+    print(element)

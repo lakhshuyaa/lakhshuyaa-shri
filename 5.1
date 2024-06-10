@@ -1,0 +1,5 @@
+S = input().strip()
+L = int(input().strip())
+words = S.split()
+count = sum(1 for word in words if len(word) >= L)
+print(count)

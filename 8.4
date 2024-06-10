@@ -1,0 +1,16 @@
+def sort_dict_by_sum(test_dict):
+    sum_dict = {key: sum(values) for key, values in test_dict.items()}
+    
+    sorted_dict = {key: sum_dict[key] for key in sorted(sum_dict, key=sum_dict.get)}
+    
+    return sorted_dict
+n = int(input())
+test_dict = {}
+for _ in range(n):
+    key, *values = input().split()
+    test_dict[key] = list(map(int, values))
+
+sorted_dict = sort_dict_by_sum(test_dict)
+
+for key, value in sorted_dict.items():
+    print(f"{key} {value}")

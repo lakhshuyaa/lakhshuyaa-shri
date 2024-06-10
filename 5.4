@@ -1,0 +1,19 @@
+# Read the input sentence
+sentence = input()
+
+# Split the sentence into words
+words = sentence.split()
+
+# Initialize variables to store the longest word and its length
+longest_word = ""
+max_length = 0
+
+# Iterate through the words to find the longest word and its length
+for word in words:
+    if len(word) > max_length:
+        max_length = len(word)
+        longest_word = word
+
+# Print the longest word and its length
+print(longest_word)
+print(max_length)

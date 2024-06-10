@@ -1,0 +1,4 @@
+age = int(input())
+weight= int(input())
+eligible = age >=18 and weight >40
+print(eligible)

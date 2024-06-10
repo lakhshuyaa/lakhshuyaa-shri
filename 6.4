@@ -1,0 +1,24 @@
+def find_pth_factor(n, p):
+    factors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
+    factors.sort()
+    
+    if p <= len(factors):
+        return factors[p - 1]
+    else:
+        return 0
+
+def main():
+    try:
+        n = int(input())
+        p = int(input())
+        
+        pth_factor = find_pth_factor(n, p)
+        print(pth_factor)
+    except ValueError:
+        print()
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,33 @@
+def merge_arrays(arr1, arr2):
+
+    set1 = set(arr1)
+    set2 = set(arr2)
+    
+
+    merged_array = sorted(set1.union(set2))
+    
+    return merged_array
+
+def main():
+    try:
+   
+        n1 = int(input())
+        arr1 = [int(input()) for _ in range(n1)]
+        
+        
+        n2 = int(input())
+        arr2 = [int(input()) for _ in range(n2)]
+        
+        
+        merged = merge_arrays(arr1, arr2)
+        
+      
+        print(end="")
+        for num in merged:
+            print(num, end=" ")
+        
+    except ValueError:
+        print()
+
+if __name__ == "__main__":
+    main()

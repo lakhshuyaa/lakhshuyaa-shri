@@ -1,0 +1,6 @@
+def check_balanced_strings(s1, s2):
+    return set(s1).issubset(set(s2))
+s1 = input()
+s2 = input()
+result = check_balanced_strings(s1, s2)
+print(result)

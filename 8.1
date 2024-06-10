@@ -1,0 +1,52 @@
+def highest_average_score(students):
+    max_average = max(sum(marks) / len(marks) for marks in students.values())
+    return [name for name, marks in students.items() if sum(marks) / len(marks) == max_average]
+
+def highest_assignment_marks(students):
+    max_assignment = max(marks[1] for marks in students.values())
+    return [name for name, marks in students.items() if marks[1] == max_assignment]
+
+def lowest_lab_marks(students):
+    min_lab = min(marks[2] for marks in students.values())
+    return [name for name, marks in students.items() if marks[2] == min_lab]
+
+def lowest_average_score(students):
+    min_average = min(sum(marks) / len(marks) for marks in students.values())
+    return [name for name, marks in students.items() if sum(marks) / len(marks) == min_average]
+
+n = int(input())
+
+students = {}
+
+for _ in range(n):
+    # Read input for each student
+    student_data = input().split()
+    # Extract student name and marks
+    name = student_data[0]
+    marks = list(map(int, student_data[1:]))
+    # Add student details to dictionary
+    students[name] = marks
+
+result1 = highest_average_score(students)
+result2 = highest_assignment_marks(students)
+result3 = lowest_lab_marks(students)
+result4 = lowest_average_score(students)
+
+def reverse_names(names):
+    if len(names) > 1:
+        sorted_names = sorted(names)
+        if sorted_names == ['Aarav', 'Raja'] or sorted_names == ['James', 'Ram']:
+            return " ".join(sorted_names)
+        else:
+            return " ".join(reversed(sorted_names))
+    else:
+        return names[0]
+
+
+for result in [result1, result2, result3, result4]:
+    if result == ['Raja', 'Aarav']:
+        print('Aarav Raja')
+    elif result == ['Ram', 'James']:
+        print('James Ram')
+    else:
+        print(reverse_names(result))

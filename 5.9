@@ -1,0 +1,15 @@
+def generate_repeated_chars(input_str):
+    result = []
+    i = 0
+    while i < len(input_str):
+        char = input_str[i]
+        count = 0
+        i += 1
+        while i < len(input_str) and input_str[i].isdigit():
+            count = count * 10 + int(input_str[i])
+            i += 1
+        result.append(char * count)
+    return ''.join(result)
+input_str1 = input()
+output_str1 = generate_repeated_chars(input_str1)
+print(output_str1)

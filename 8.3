@@ -1,0 +1,33 @@
+def uncommon_words(s1, s2):
+    def split_sentence(sentence):
+        return sentence.split()
+    
+    words_s1 = split_sentence(s1)
+    words_s2 = split_sentence(s2)
+    
+    freq_s1 = {}
+    freq_s2 = {}
+    
+    for word in words_s1:
+        freq_s1[word] = freq_s1.get(word, 0) + 1
+        
+    for word in words_s2:
+        freq_s2[word] = freq_s2.get(word, 0) + 1
+    
+    uncommon = []
+    
+    for word, freq in freq_s1.items():
+        if freq == 1 and word not in freq_s2:
+            uncommon.append(word)
+    
+    for word, freq in freq_s2.items():
+        if freq == 1 and word not in freq_s1:
+            uncommon.append(word)
+    
+    return " ".join(uncommon)
+
+s1 = input()
+s2 = input()
+
+uncommon = uncommon_words(s1, s2)
+print(uncommon)

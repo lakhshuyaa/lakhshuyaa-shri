@@ -1,0 +1,28 @@
+def find_intersection(arr1, arr2):
+    intersection = []
+    i, j = 0, 0
+    
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] == arr2[j]:
+            intersection.append(arr1[i])
+            i += 1
+            j += 1
+        elif arr1[i] < arr2[j]:
+            i += 1
+        else:
+            j += 1
+            
+    return intersection
+
+# Input
+T = int(input())
+
+for _ in range(T):
+    N1=int(input())
+    arr1= [int(input()) for i in range(N1)]
+    N2=int(input())
+    arr2 = [int(input()) for i in range(N2)]
+    
+    # Output
+    intersection = find_intersection(arr1, arr2)
+    print(*intersection)

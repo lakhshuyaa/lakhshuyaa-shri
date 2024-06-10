@@ -1,0 +1,6 @@
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+distinct_elements = set()
+for num in arr:
+    distinct_elements.add(num)
+print(" ".join(map(str, distinct_elements)))

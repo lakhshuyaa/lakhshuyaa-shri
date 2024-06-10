@@ -1,0 +1,19 @@
+def is_binary_string(s):
+    # Create a set of unique characters in the string
+    unique_chars = set(s)
+    
+    # If the set contains only '0' and '1', it's a binary string
+    if unique_chars == {'0', '1'} or unique_chars == {'0'} or unique_chars == {'1'}:
+        return "Yes"
+    else:
+        return "No"
+
+# Input processing
+s = input()
+
+# Check if the string is binary
+result = is_binary_string(s)
+
+# Output
+print(result)
+

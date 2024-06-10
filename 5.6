@@ -1,0 +1,20 @@
+# Input S1, S2, and N
+S1 = input().strip()
+S2 = input().strip()
+N = int(input())
+
+# Initialize an empty result string
+result = ""
+
+# Iterate through the characters of S1
+for char in S1:
+    # Check if the character is present in S2 and not already in the result string
+    if char in S2 and char not in result:
+        # Append the character to the result string
+        result += char
+        # If the result string length is equal to N, break the loop
+        if len(result) == N:
+            break
+
+# Print the result string
+print(result)

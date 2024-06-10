@@ -1,0 +1,26 @@
+# Function to compare two strings lexicographically
+def compare_strings(str1, str2):
+    # Convert both strings to lowercase
+    str1_lower = str1.lower()
+    str2_lower = str2.lower()
+    
+    # Compare the strings lexicographically
+    if str1_lower < str2_lower:
+        return -1
+    elif str1_lower > str2_lower:
+        return 1
+    else:
+        return 0
+
+# Input the number of test cases
+T = int(input())
+
+# Process each test case
+for _ in range(T):
+    # Input two strings
+    str1 = input()
+    str2 = input()
+    
+    # Compare the strings and print the result
+    print(compare_strings(str1, str2))
+

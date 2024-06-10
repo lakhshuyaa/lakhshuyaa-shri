@@ -1,0 +1,26 @@
+n = int(input())
+List1 = list(map(int, input().split()))
+
+def is_strictly_increasing(n, List1):
+    # Remove one element from the list and check if the remaining elements are strictly increasing
+    for i in range(n):
+        new_list = List1[:i] + List1[i+1:]
+        if is_strictly_increasing_helper(new_list):
+            return True
+
+    # Check if the original list is strictly increasing
+    return is_strictly_increasing_helper(List1)
+
+def is_strictly_increasing_helper(List1):
+    for i in range(len(List1) - 1):
+        if List1[i] >= List1[i+1]:
+            return False
+    return True
+
+# Check if the list is strictly decreasing
+if List1 == sorted(List1, reverse=True):
+    print("True")
+elif is_strictly_increasing(n, List1):
+    print("True")
+else:
+    print("False")

@@ -1,0 +1,49 @@
+def calculate_average_marks(N, column_names, student_data):
+    # Initialize variables to store total marks and count of students
+    total_marks = 0
+    num_students = 0
+    
+    # Find the indices of relevant columns
+    required_columns = {"ID", "NAME", "MARKS", "CLASS"}
+    column_indices = {}
+    for column_name in required_columns:
+        for idx, name in enumerate(column_names):
+            if column_name in name:
+                column_indices[column_name] = idx
+                break
+    
+    # Check if all required columns are present
+    if not column_indices.keys() == required_columns:
+        print("Missing required columns")
+        return None
+    
+    # Extract indices of relevant columns
+    id_index = column_indices["ID"]
+    marks_index = column_indices["MARKS"]
+    
+    # Iterate over student data to calculate total marks and count
+    for student in student_data:
+        total_marks += int(student[marks_index])
+        num_students += 1
+    
+    # Calculate average marks
+    average_marks = total_marks / num_students
+    
+    return average_marks
+
+# Read input
+N = int(input())
+column_names = input().upper().split()  # Convert to uppercase
+student_data = [input().split() for _ in range(N)]
+# Ensure that column_names include all required columns
+required_columns = {"ID", "NAME", "MARKS", "CLASS"}
+if not required_columns.issubset(column_names):
+    print("Missing required columns")
+else:
+      # Calculate average marks
+    average_marks = calculate_average_marks(N, column_names, student_data)
+
+    # Print average marks corrected to two decimal places
+    if average_marks is not None:
+        print("{:.2f}".format(average_marks))
+
